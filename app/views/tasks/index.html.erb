@@ -1,0 +1,21 @@
+<%# This action should fetch all tasks, and a view should loop over these to display them, like in the screenshot below. %>
+<h1>hello, my dear boy</h1>
+
+<h3>
+  <% @tasks.each do |task| %>
+    <% if task.completed %>
+      <input type="checkbox" checked disabled>
+    <% else%>
+      <input type="checkbox" disabled>
+    <%end%>
+    <%# <%=task.title%>
+    <%= link_to task.title, task_path(task)%>
+    <br>
+    <%= link_to "edit", edit_task_path(task) %>
+    <br>
+  <% end %>
+</h3>
+
+<h3>
+  <%= link_to "new", new_task_path %>
+</h3>
